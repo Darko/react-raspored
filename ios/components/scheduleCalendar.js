@@ -22,7 +22,7 @@ export default class ScheduleCalendar extends React.Component {
   render() {
     return (
       <View>
-        <Week onDay={(date) => this.setState({ selectedDay: date })}></Week>
+        <Week selectedDate={this.state.selectedDay.date} onDay={(date) => this.setState({ selectedDay: date })}></Week>
 
         <Text>{ this.state.selectedDay.date }</Text>
 
@@ -58,7 +58,7 @@ export class Week extends React.Component {
       const currentDay = (i % daysInWeek) + 1;
 
       days.push(
-        <Day day={currentDay} date={i + 1} selected={false} onPressed={this.props.onDay} key={currentDay}></Day>
+        <Day day={currentDay} date={i + 1} selected={this.props.selectedDate === i + 1} onPressed={this.props.onDay} key={currentDay}></Day>
       );
     }
 
@@ -72,16 +72,16 @@ export class Week extends React.Component {
 
 const DayStyles = StyleSheet.create({
   wrapper: {
-    width: '14.2%'
+    width: '14.2%',
   },
   text: {
-    fontSize: 14,
+    fontSize: 11,
     fontWeight: 'normal',
     textAlign: 'center',
     color: AppStyles.brandText.contrastDark
   },
   number: {
-    fontSize: 24,
+    fontSize: 21,
     fontWeight: '700',
     textAlign: 'center',
     color: AppStyles.brandText.contrastDark
@@ -114,7 +114,7 @@ export class Day extends React.Component {
         <Text style={numberStyle} onPress={() => this.props.onPressed({
           date: this.props.date,
           day: this.props.day
-        })}>{ this.props.date }</Text>
+        })}>{ this.props.date < 10 ? '0' + this.props.date : this.props.date }</Text>
       </View>
     );
   }
