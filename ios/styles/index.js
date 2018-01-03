@@ -1,7 +1,8 @@
 const brand = {
   primary: '#ed6b3f',
   accent: '',
-  backgroundColor: '#ffffff'
+  backgroundColor: '#ffffff',
+  borderColor: 'rgba(0, 0, 0, 0.1)'
 }
 
 const brandText = {

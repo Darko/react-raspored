@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomButton from '../components/button';
+import ScheduleCalendar from '../components/scheduleCalendar';
 
 import AppStyles from '../styles/index';
 
@@ -47,9 +48,14 @@ export default class ScheduleScreen extends React.Component {
 
   render() {
     return (
-      <View style={[styles.filterWrapper, { backgroundColor: AppStyles.brand.backgroundColor }]}>
-        <CustomButton value="Upcoming" primary={true} ghost={true} round={true} active={this.state.selected === 'upcoming'} onPressed={ () => this.fetchUpcoming() }></CustomButton>
-        <CustomButton value="Overall" primary={true} ghost={true} round={true} active={this.state.selected === 'overall'} onPressed={ () => this.fetchOverall() }></CustomButton>
+      <View >
+        <View style={[styles.filterWrapper, { backgroundColor: AppStyles.brand.backgroundColor }]}>
+          <CustomButton value="Upcoming" primary={true} ghost={true} round={true} active={this.state.selected === 'upcoming'} onPressed={ () => this.fetchUpcoming() }></CustomButton>
+          <CustomButton value="Overall" primary={true} ghost={true} round={true} active={this.state.selected === 'overall'} onPressed={ () => this.fetchOverall() }></CustomButton>
+        </View>
+
+        <ScheduleCalendar></ScheduleCalendar>
+
       </View>
     );
   }
