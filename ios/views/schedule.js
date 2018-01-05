@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomButton from '../components/button';
-import ScheduleCalendar from '../components/scheduleCalendar';
+import ScheduleCalendar from '../components/schedule-calendar/scheduleCalendar';
 
 import AppStyles from '../styles/index';
 

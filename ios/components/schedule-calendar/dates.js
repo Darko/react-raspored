@@ -1,35 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import AppStyles from '../styles/index';
+import AppStyles from '../../styles/index';
 
 const daysInWeek = 7;
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const shortDayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-export default class ScheduleCalendar extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      selectedDay: {
-        day: null,
-        date: null
-      }
-    }
-  }
-
-  render() {
-    return (
-      <View>
-        <Week selectedDate={this.state.selectedDay.date} onDay={(date) => this.setState({ selectedDay: date })}></Week>
-
-        <Text>{ this.state.selectedDay.date }</Text>
-
-      </View>
-    );
-  }
-}
 
 const WeekStyles = StyleSheet.create({
   wrapper: {

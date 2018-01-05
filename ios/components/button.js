@@ -76,7 +76,7 @@ export default class CustomButton extends React.Component {
     }
 
     return (
-      <View style={WrapperStyles}>
+      <View onPress={this.props.onPressed} style={WrapperStyles}>
         <Text onPress={this.props.onPressed} style={TextStyles}>
           {this.props.value.toUpperCase()}
         </Text>
