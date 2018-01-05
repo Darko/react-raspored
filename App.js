@@ -1,7 +1,7 @@
 import React from 'react';
-import AppNavigation from './ios/router/index'
+import AppNavigation from './app/router/index'
 
-import AppStyles from './ios/styles/index';
+import AppStyles from './app/styles/index';
 
 export default class App extends React.Component {
   render() {
