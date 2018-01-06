@@ -1,10 +1,8 @@
 import React from 'react';
-import AppNavigation from './app/router/index'
-
-import AppStyles from './app/styles/index';
+import Main from './app/index'
 
 export default class App extends React.Component {
   render() {
-    return <AppNavigation/>;
+    return <Main/>;
   }
 }

@@ -3,9 +3,9 @@ import { StackNavigator } from 'react-navigation';
 
 import Styles from '../styles/index';
 
-import HomeScreen from '../views/home';
-import ProfileScreen from '../views/profile';
-import ScheduleScreen from '../views/schedule';
+import HomeScreen from '../pages/home';
+import ProfileScreen from '../pages/profile';
+import ScheduleScreen from '../pages/schedule';
 
 const AppNavigation = StackNavigator({
   Home: { screen: HomeScreen },
