@@ -1,21 +1,8 @@
-import createReducer from '../lib/helpers';
-import * as types from '../actions/types';
+import { combineReducers } from 'redux';
+import classes from './classes';
 
-const initialState = {
-  isFetching: false,
-  fetched: false,
-  data: [],
-  error: null
-}
-
-const classes = createReducer({}, {
-  [types.GET_CLASSES](state, action) {
-    const newState = {
-      prettyXd: true
-    }
-
-    return newState;
-  }
+const reducers = combineReducers({
+  classes
 })
 
-export default classes;
+export default reducers;
