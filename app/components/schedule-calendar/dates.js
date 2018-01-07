@@ -8,39 +8,54 @@ import AppStyles from '../../styles/index';
 
 const WeekStyles = StyleSheet.create({
   wrapper: {
-    height: 60,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: AppStyles.brand.backgroundColor,
-    paddingTop: 4,
-    paddingBottom: 4,
     borderBottomColor: AppStyles.brand.borderColor,
     borderBottomWidth: 1,
     borderTopColor: AppStyles.brand.borderColor,
     borderTopWidth: 1
+  },
+  multiWeek: {
+    flexWrap: 'wrap'
   }
-})
+});
 
-export class Week extends React.Component {
-  render() {
+export class DaysWrapper extends React.Component {
+  getDays(weeks = 1) {
+    const totalDays = weeks * daysInWeek;
+  
     const now = new Date();
-    const days = [];
-    let currentDay = now.getDay();
-    let currentDate = now.getDate();
-
-    for (let i = currentDate; i < (currentDate + daysInWeek); i++) {
-      const currentDay = (i % daysInWeek) + 1;
-
+      const days = [];
+      let currentDay = now.getDay();
+      let currentDate = now.getDate();
+  
+    for (let i = 0; i < totalDays; i++) {
+      const newDay = this.addDays(now, i);
+      const date = newDay.getDate();
+      const day = newDay.getDay();
+  
       days.push(
-        <Day day={currentDay} date={i + 1} selected={this.props.selectedDate === i + 1} onPressed={this.props.onDay} key={currentDay}></Day>
+        <Day day={day} date={date} selected={this.props.selectedDate === date} onPressed={this.props.onDay} key={i}/>
       );
-    }
+    } 
+
+    return days;
+  }
+
+  addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  render() {
+    const days = this.getDays(this.props.weeks);
+    const styles = this.props.weeks > 1 ? [WeekStyles.wrapper, WeekStyles.multiWeek] : WeekStyles.wrapper
 
     return (
-      <View style={WeekStyles.wrapper}>
-        {days}
-      </View>
+      <View style={styles}>{days}</View>
     );
   }
 }

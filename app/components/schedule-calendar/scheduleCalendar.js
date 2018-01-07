@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions/index';
-import { Week } from './dates';
+import { DaysWrapper } from './dates';
 
 class ScheduleCalendar extends React.Component {
   constructor(props) {
@@ -24,10 +24,15 @@ class ScheduleCalendar extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const { selected } = this.props;
+
     return (
       <View>
-        <Week selectedDate={this.state.selectedDay.date} onDay={(date) => this.onDay(date)}></Week>
+        <DaysWrapper
+          weeks={ this.props.calendar === 'overall' ? 4 : 1 }
+          selectedDate={this.state.selectedDay.date}
+          onDay={(date) => this.onDay(date)}/>
+
         <Text>{ this.state.selectedDay.date }</Text>
       </View>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import CustomButton from '../components/button';
+import CustomButton from '../components/elements/button';
 
 import AppStyles from '../styles/index';
 
-import UserAvatar from '../components/userAvatar';
+import UserAvatar from '../components/elements/userAvatar';
 
 const fakeUser = {
   avatar: 'https://scontent-vie1-1.cdninstagram.com/t51.2885-19/s150x150/26066040_140809569917439_6069083750422020096_n.jpg',

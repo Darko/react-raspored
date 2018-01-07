@@ -8,6 +8,8 @@ import AppStyles from '../../styles/index';
 const DayStyles = StyleSheet.create({
   wrapper: {
     width: '14.2%',
+    paddingTop: 10,
+    paddingBottom: 10
   },
   text: {
     fontSize: 11,
@@ -45,7 +47,7 @@ export default class Day extends React.Component {
         <Text style={textStyle} onPress={() => this.props.onPressed({
           date: this.props.date,
           day: this.props.day
-        })}>{ shortDayNames[this.props.day - 1].toUpperCase() }</Text>
+        })}>{ shortDayNames[this.props.day].toUpperCase() }</Text>
         <Text style={numberStyle} onPress={() => this.props.onPressed({
           date: this.props.date,
           day: this.props.day

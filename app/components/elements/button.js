@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import AppStyles from '../styles/index';
+import AppStyles from '../../styles/index';
 
 const styles = {
   buttonWrapper: {
@@ -10,12 +10,11 @@ const styles = {
     paddingLeft: 12,
     paddingRight: 12,
     marginLeft: 6,
-    marginRight: 6,
-    // textTransform: 'uppercase'
+    marginRight: 6
   },
   buttonText: {
     color: AppStyles.brandText.contrastDark,
-    fontWeight: 'bold',
+    fontWeight: '700',
     width: '100%',
     textAlign: 'center'
   },
