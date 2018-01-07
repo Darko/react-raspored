@@ -18,13 +18,13 @@ class ScheduleCalendar extends React.Component {
   }
 
   onDay(date) {
-    const { actions, classes } = this.props;
+    const { actions } = this.props;
     actions.getClasses('darko');
     this.setState({ selectedDay: date });
   }
 
   render() {
-    const { selected } = this.props;
+    const { classes } = this.props;
 
     return (
       <View>
@@ -33,7 +33,9 @@ class ScheduleCalendar extends React.Component {
           selectedDate={this.state.selectedDay.date}
           onDay={(date) => this.onDay(date)}/>
 
-        <Text>{ this.state.selectedDay.date }</Text>
+        <Text>{
+          classes.isFetching ? 'Loading...' : classes.data.value
+        }</Text>
       </View>
     );
   }
