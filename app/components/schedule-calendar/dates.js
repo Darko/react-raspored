@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+
+import Day from './day';
+import { daysInWeek, monthNames, shortDayNames } from './constants';
 
 import AppStyles from '../../styles/index';
-
-const daysInWeek = 7;
-const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const shortDayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const WeekStyles = StyleSheet.create({
   wrapper: {
@@ -41,56 +40,6 @@ export class Week extends React.Component {
     return (
       <View style={WeekStyles.wrapper}>
         {days}
-      </View>
-    );
-  }
-}
-
-const DayStyles = StyleSheet.create({
-  wrapper: {
-    width: '14.2%',
-  },
-  text: {
-    fontSize: 11,
-    fontWeight: 'normal',
-    textAlign: 'center',
-    color: AppStyles.brandText.contrastDark
-  },
-  number: {
-    fontSize: 21,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: AppStyles.brandText.contrastDark
-  },
-  selected: {
-    fontWeight: '700',
-    color: AppStyles.brand.primary
-  }
-});
-
-export class Day extends React.Component {
-  render() {
-    const textStyle = [DayStyles.text];
-    const numberStyle = [DayStyles.number];
-
-    if (this.props.selected) {
-      textStyle.push(DayStyles.selected);
-      numberStyle.push(DayStyles.selected);
-    }
-  
-    return (
-      <View style={DayStyles.wrapper} onPress={() => this.props.onPressed({
-        date: this.props.date,
-        day: this.props.day
-      })}>
-        <Text style={textStyle} onPress={() => this.props.onPressed({
-          date: this.props.date,
-          day: this.props.day
-        })}>{ shortDayNames[this.props.day - 1].toUpperCase() }</Text>
-        <Text style={numberStyle} onPress={() => this.props.onPressed({
-          date: this.props.date,
-          day: this.props.day
-        })}>{ this.props.date < 10 ? '0' + this.props.date : this.props.date }</Text>
       </View>
     );
   }

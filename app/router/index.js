@@ -3,9 +3,9 @@ import { StackNavigator } from 'react-navigation';
 
 import Styles from '../styles/index';
 
-import HomeScreen from '../pages/home';
-import ProfileScreen from '../pages/profile';
-import ScheduleScreen from '../pages/schedule';
+import HomeScreen from '../containers/home';
+import ProfileScreen from '../containers/profile';
+import ScheduleScreen from '../containers/schedule';
 
 const AppNavigation = StackNavigator({
   Home: { screen: HomeScreen },
@@ -18,6 +18,6 @@ const AppNavigation = StackNavigator({
     },
     headerTintColor: Styles.brandText.contrastLight
   }
-})
+});
 
 export default AppNavigation;

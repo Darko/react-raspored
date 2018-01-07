@@ -8,13 +8,11 @@ const initialState = {
   error: null
 }
 
-const classes = createReducer({}, {
+const classes = createReducer(initialState, {
   [types.GET_CLASSES](state, action) {
-    const newState = {
-      prettyXd: true
-    }
+    const newState = { ...state, ...action.payload }
 
-    return newState;
+    return newState || state;
   }
 });
 

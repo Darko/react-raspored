@@ -61,7 +61,6 @@ export default class HomeScreen extends React.Component {
 
         <CustomButton style={styles.profileButton} primary={true} raised={true} onPressed={ () => navigate('Profile') } value={'Профил'}></CustomButton>
         <CustomButton style={styles.profileButton} primary={true} raised={true} onPressed={ () => navigate('Schedule') } value={'Распоред'}></CustomButton>
-
       </View>
     );
   }
